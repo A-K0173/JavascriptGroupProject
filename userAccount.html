@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-screen">
+        <h2>User Login</h2>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="password" id="pin" placeholder="Enter your PIN" required>
+        <button onclick="authenticate()">Login</button>
+        <p id="login-error" style="color: red;"></p>
+    </div>
+
+    <div class="container hidden" id="main-menu">
+        <h2>Main Menu</h2>
+        <button onclick="showViewBalance()">View Balance</button>
+        <button onclick="showDepositFunds()">Deposit Funds</button>
+        <button onclick="showWithdrawFunds()">Withdraw Funds</button>
+        <p><button onclick="logout()">Logout</button></p>
+    </div>
+
+    <div class="container hidden" id="transaction-screen">
+        <h2 id="transaction-title"></h2>
+        <input type="number" id="transaction-amount" placeholder="Enter amount">
+        <button onclick="completeTransaction()">Submit</button>
+        <button onclick="goBackToMenu()">Cancel</button>
+        <p id="transaction-error" style="color: red;"></p>
+    </div>
+    <script src="userAccount.js"></script>
+</body>
+</html>
